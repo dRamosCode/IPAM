@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8" />
+		<title>IP Adress Manager</title>
+		<link rel="stylesheet" href="..\\Styles\\index.css" />
+		<link rel="stylesheet" href="..\\Styles\\colours.css" />
+		<link rel="stylesheet" href="..\\Styles\\fonts.css" />
+	</head>
+
+	<body>
+		<div class="navBar">
+			<div class="logo"></div>
+			<div class="brandName">IP Address Manager</div>
+			<div class="appControl">
+				<div class="minimize"></div>
+				<div class="maximize"></div>
+				<div class="close"></div>
+			</div>
+		</div>
+		<div class="content">
+			<div class="menu">
+				<div class="settings"></div>
+			</div>
+			<div class="contentContainer">
+				<div class="navigation">
+					<div class="searchIcon"></div>
+					<input class="search" placeholder="Search..." />
+					<div class="newItem" id="newItemButton">New</div>
+				</div>
+				<table class="headings">
+					<tr>
+						<th>Name</th>
+						<th>IP Address</th>
+						<th>Subnet</th>
+						<th>Gateway</th>
+						<th>Adapter</th>
+						<th>Settings</th>
+					</tr>
+				</table>
+				<div class="itemTable">
+					<table class="itemList">
+						<tbody id="itemList"></tbody>
+					</table>
+				</div>
+			</div>
+		</div>
+	</body>
+
+	<div id="backgroundModal"></div>
+	<div id="newItemModal"></div>
+
+	<script src="../../../node_modules/jquery/dist/jquery.min.js"></script>
+
+	<!-- Load React. -->
+	<!-- Note: when deploying, replace "development.js" with "production.min.js". -->
+	<script src="../../../node_modules/react/umd/react.development.js"></script>
+	<script src="../../../node_modules/react-dom/umd/react-dom.development.js"></script>
+	<script src="../../../node_modules/@babel/standalone/babel.min.js"></script>
+
+	<!-- Load React components -->
+	<script src="../Classes/ModalBackground.js" type="text/babel"></script>
+	<script src="../Classes/ModalSave.js" type="text/babel"></script>
+	<script src="../Classes/ModalCancel.js" type="text/babel"></script>
+	<script src="../Classes/ModalName.js" type="text/babel"></script>
+	<script src="../Classes/ModalAdapter.js" type="text/babel"></script>
+	<script src="../Classes/ModalAddressElement.js" type="text/babel"></script>
+	<script src="../Classes/ModalAddressGroup.js" type="text/babel"></script>
+	<script src="../Classes/ModalAddressContainer.js" type="text/babel"></script>
+	<script src="../Classes/ModalHeader.js" type="text/babel"></script>
+	<script src="../Classes/ModalButtons.js" type="text/babel"></script>
+	<script src="../Classes/ModalContainer.js" type="text/babel"></script>
+	<script src="../Classes/Item.js" type="text/babel"></script>
+	<script src="../Classes/ItemTable.js" type="text/babel"></script>
+
+	<!-- Load React logic -->
+	<script src="../Modules/react.js" type="text/babel"></script>
+
+	<script src="../Modules/renderer.js" type="text/javascript"></script>
+	<script src="../Modules/events.js" type="text/javascript"></script>
+</html>
