@@ -20,7 +20,7 @@ const createWindow = () => {
 		frame: false,
 		autoHideMenuBar: true,
 		webPreferences: {
-			preload: path.join(__dirname, "src\\Modules\\preload.js"),
+			preload: path.join(__dirname, "Modules\\preload.js"),
 		},
 	});
 
@@ -31,7 +31,7 @@ const createWindow = () => {
 	//mainWindow.reload();
 
 	//Load Index.html
-	mainWindow.loadFile(path.join(__dirname, "src\\HTML\\index.html"));
+	mainWindow.loadFile(path.join(__dirname, "HTML\\index.html"));
 };
 
 // Render window
@@ -94,22 +94,22 @@ ipcMain.on("saveJSON", (evt, arg) => {
 	let data = [];
 
 	//If JSON exist, read data
-	if (jetpack.exists(path.join(__dirname, "src\\Data\\data.json")) == "file") {
-		data = jetpack.read(path.join(__dirname, "src\\Data\\data.json"), "json");
+	if (jetpack.exists(path.join(__dirname, "Data\\data.json")) == "file") {
+		data = jetpack.read(path.join(__dirname, "Data\\data.json"), "json");
 	}
 
 	//Update data
 	data.push(arg);
 
 	//Write new JSON
-	jetpack.write(path.join(__dirname, "src\\Data\\data.json"), data);
+	jetpack.write(path.join(__dirname, "Data\\data.json"), data);
 });
 
 // Read JSON file (update data)
 ipcMain.on("requestData", (evt, arg) => {
 	// If JSON exists, read data
-	if (jetpack.exists(path.join(__dirname, "src\\Data\\data.json"), "json") == "file") {
-		let data = jetpack.read(path.join(__dirname, "src\\Data\\data.json"), "json");
+	if (jetpack.exists(path.join(__dirname, "Data\\data.json"), "json") == "file") {
+		let data = jetpack.read(path.join(__dirname, "Data\\data.json"), "json");
 
 		// Send file data to renderer process
 		mainWindow.webContents.send("updateData", data);
