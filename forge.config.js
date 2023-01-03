@@ -25,7 +25,7 @@ module.exports = {
 			config: {
 				repository: {
 					owner: "dRamosCode",
-					name: "IP-Address-Manager",
+					name: "IPAM",
 				},
 				prerelease: false,
 				draft: true,
