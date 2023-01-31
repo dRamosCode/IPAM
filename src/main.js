@@ -63,8 +63,6 @@ exec("cmd /c chcp 65001>nul && netsh interface ipv4 show addresses", (error, std
 		substring = stdout.substring(indexes[i], indexes[i + 1] - 1);
 		adapters.push(substring);
 	}
-
-	console.log(adapters);
 });
 
 //----Inter Process Comunication----
@@ -123,15 +121,21 @@ ipcMain.on("requestAdapters", (evt, arg) => {
 
 // Change active network
 ipcMain.on("changeNetwork", (evt, arg) => {
-	exec(
-		"cmd /c chcp 65001>nul && netsh interface ipv4 set address " +
-			arg.adapter +
-			" static " +
-			arg.ipAddress +
-			" " +
-			arg.gateway +
-			" " +
-			arg.subnet,
-		(error, stdout, stderr) => {}
-	);
+	if (arg.DHCP == true) {
+		exec("cmd /c chcp 65001>nul && netsh interface ipv4 dhcp", (error, stdout, stderr) => {});
+		console.log("DHCP");
+	} else {
+		exec(
+			"cmd /c chcp 65001>nul && netsh interface ipv4 set address " +
+				arg.adapter +
+				" static " +
+				arg.ipAddress +
+				" " +
+				arg.gateway +
+				" " +
+				arg.subnet,
+			(error, stdout, stderr) => {}
+		);
+		console.log("IP");
+	}
 });

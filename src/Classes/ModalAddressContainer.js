@@ -7,7 +7,7 @@ class ModalAddressContainer extends React.Component {
 		return (
 			<div className="ipAddressContainer">
 				<p>{this.props.name}</p>
-				<ModalAddressGroup setAddress={this.props.setAddress} />
+				<ModalAddressGroup parentState={this.props.parentState} setAddress={this.props.setAddress} />
 			</div>
 		);
 	}

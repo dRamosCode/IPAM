@@ -13,14 +13,15 @@ class ModalSave extends React.Component {
 	// Functions
 	checkData() {
 		if (
-			this.props.parentState.name != "" &&
-			this.props.parentState.adapter != "" &&
-			this.props.parentState.ipAddress != "" &&
-			this.props.parentState.ipAddress.length > 6 &&
-			this.props.parentState.subnet != "" &&
-			this.props.parentState.subnet.length > 6 &&
-			this.props.parentState.gateway != "" &&
-			this.props.parentState.gateway.length > 6
+			(this.props.parentState.name != "" &&
+				this.props.parentState.adapter != "" &&
+				this.props.parentState.ipAddress != "" &&
+				this.props.parentState.ipAddress.length > 6 &&
+				this.props.parentState.subnet != "" &&
+				this.props.parentState.subnet.length > 6 &&
+				this.props.parentState.gateway != "" &&
+				this.props.parentState.gateway.length > 6) ||
+			(this.props.parentState.DHCP == true && this.props.parentState.name != "" && this.props.parentState.adapter != "")
 		) {
 			saveModal(this.props.parentState);
 		}

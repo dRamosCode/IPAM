@@ -53,6 +53,7 @@ window.electron.receiveData((evt, arg) => {
 // Update JSON list
 function updateData(data) {
 	// Render items
+	console.log(data);
 	itemList.render(<ItemTable items={data} />);
 }
 
