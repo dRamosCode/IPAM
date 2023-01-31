@@ -12,11 +12,7 @@ class ModalContainer extends React.Component {
 			ipAddress: "",
 			subnet: "",
 			gateway: "",
-<<<<<<< HEAD
 			DHCP: false,
-=======
-			disabled: false,
->>>>>>> e8774459d501f8d8849f8427cc538bd9795f42d9
 		};
 	}
 
@@ -38,15 +34,9 @@ class ModalContainer extends React.Component {
 	};
 	DHCPEnable = (newState) => {
 		if (newState == true) {
-<<<<<<< HEAD
 			this.setState({ DHCP: false }, this.callback);
 		} else {
 			this.setState({ DHCP: true }, this.callback);
-=======
-			this.setState({ disabled: false }, this.callback);
-		} else {
-			this.setState({ disabled: true }, this.callback);
->>>>>>> e8774459d501f8d8849f8427cc538bd9795f42d9
 		}
 	};
 
@@ -61,31 +51,19 @@ class ModalContainer extends React.Component {
 						parentState={this.state}
 						setAddress={this.setIP}
 						name={"IP Address:"}
-<<<<<<< HEAD
 						disabled={this.DHCP}
-=======
-						disabled={this.disabled}
->>>>>>> e8774459d501f8d8849f8427cc538bd9795f42d9
 					/>
 					<ModalAddressContainer
 						parentState={this.state}
 						setAddress={this.setSubnet}
 						name={"Subnet Mask:"}
-<<<<<<< HEAD
 						disabled={this.DHCP}
-=======
-						disabled={this.disabled}
->>>>>>> e8774459d501f8d8849f8427cc538bd9795f42d9
 					/>
 					<ModalAddressContainer
 						parentState={this.state}
 						setAddress={this.setGateway}
 						name={"Default Gateway:"}
-<<<<<<< HEAD
 						disabled={this.DHCP}
-=======
-						disabled={this.disabled}
->>>>>>> e8774459d501f8d8849f8427cc538bd9795f42d9
 					/>
 					<ModalButtons parentState={this.state} DHCPEnable={this.DHCPEnable} />
 				</div>

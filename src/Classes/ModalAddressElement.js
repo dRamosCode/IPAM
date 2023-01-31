@@ -15,11 +15,7 @@ class ModalAddressElement extends React.Component {
 	}
 
 	render() {
-<<<<<<< HEAD
 		if (this.props.parentState.DHCP == false) {
-=======
-		if (this.props.parentState.disabled == false) {
->>>>>>> e8774459d501f8d8849f8427cc538bd9795f42d9
 			if (this.state.value == "") {
 				return (
 					<input
