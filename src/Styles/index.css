@@ -331,12 +331,7 @@ tr :first-child {
 	background-color: rgba(255, 0, 0, 5%) !important;
 }
 .disabled {
-<<<<<<< HEAD
 	background-color: var(--bgLight4) !important;
 	color: var(--bgLight4) !important;
 	pointer-events: none !important;
-=======
-	background-color: var(--bgDark5) !important;
-	pointer-events: none;
->>>>>>> e8774459d501f8d8849f8427cc538bd9795f42d9
 }
