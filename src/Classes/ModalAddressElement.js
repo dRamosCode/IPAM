@@ -15,25 +15,38 @@ class ModalAddressElement extends React.Component {
 	}
 
 	render() {
-		if (this.state.value == "") {
-			return (
-				<input
-					className="ipElement empty"
-					type="text"
-					placeholder=""
-					maxLength="3"
-					value={this.state.value}
-					onChange={this.handleChange}
-				/>
-			);
+		if (this.props.parentState.disabled == false) {
+			if (this.state.value == "") {
+				return (
+					<input
+						className="ipElement empty"
+						type="text"
+						placeholder=""
+						maxLength="3"
+						value={this.state.value}
+						onChange={this.handleChange}
+					/>
+				);
+			} else {
+				return (
+					<input
+						className="ipElement"
+						type="text"
+						placeholder=""
+						maxLength="3"
+						value={this.state.value}
+						onChange={this.handleChange}
+					/>
+				);
+			}
 		} else {
 			return (
 				<input
-					className="ipElement"
+					className="ipElement disabled"
 					type="text"
 					placeholder=""
-					maxLength="3"
-					value={this.state.value}
+					maxLength="0"
+					value=""
 					onChange={this.handleChange}
 				/>
 			);

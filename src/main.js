@@ -63,8 +63,6 @@ exec("cmd /c chcp 65001>nul && netsh interface ipv4 show addresses", (error, std
 		substring = stdout.substring(indexes[i], indexes[i + 1] - 1);
 		adapters.push(substring);
 	}
-
-	console.log(adapters);
 });
 
 //----Inter Process Comunication----

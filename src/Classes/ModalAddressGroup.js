@@ -37,13 +37,13 @@ class ModalAddressGroup extends React.Component {
 	render() {
 		return (
 			<div className="ipAddress">
-				<ModalAddressElement setAddress={this.setAddress1} />
+				<ModalAddressElement parentState={this.props.parentState} setAddress={this.setAddress1} />
 				<p>.</p>
-				<ModalAddressElement setAddress={this.setAddress2} />
+				<ModalAddressElement parentState={this.props.parentState} setAddress={this.setAddress2} />
 				<p>.</p>
-				<ModalAddressElement setAddress={this.setAddress3} />
+				<ModalAddressElement parentState={this.props.parentState} setAddress={this.setAddress3} />
 				<p>.</p>
-				<ModalAddressElement setAddress={this.setAddress4} />
+				<ModalAddressElement parentState={this.props.parentState} setAddress={this.setAddress4} />
 			</div>
 		);
 	}

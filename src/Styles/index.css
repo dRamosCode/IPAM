@@ -271,6 +271,40 @@ tr :first-child {
 	justify-content: flex-end;
 	gap: 2em;
 }
+.DHCPCheckbox {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: space-between;
+	gap: 3em;
+	margin-left: 2em;
+	margin-right: auto;
+	padding-top: 0.5em;
+	padding-bottom: 0.5em;
+	padding-right: 1em;
+	padding-left: 1em;
+	border: none;
+	border-radius: 0.5em;
+	font-weight: bold;
+	background-color: var(--bgLight3);
+}
+.DHCPCheckbox p {
+	margin: 0;
+}
+.checkBox {
+	appearance: none;
+	background-color: white !important;
+	width: 1.5em;
+	height: 1.5em;
+	padding-top: 0 !important;
+	padding-bottom: 0 !important;
+	padding-left: 0 !important;
+	padding-right: 0 !important;
+	border-radius: 1em !important;
+}
+.checkBox:checked {
+	background-color: var(--correctLight) !important;
+}
 .cancelButton {
 	padding-top: 0.5em;
 	padding-bottom: 0.5em;
@@ -295,4 +329,8 @@ tr :first-child {
 .empty {
 	border-bottom: 0.2em solid var(--errorLight) !important;
 	background-color: rgba(255, 0, 0, 5%) !important;
+}
+.disabled {
+	background-color: var(--bgDark5) !important;
+	pointer-events: none;
 }
