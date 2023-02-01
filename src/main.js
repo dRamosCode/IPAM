@@ -103,6 +103,12 @@ ipcMain.on("saveJSON", (evt, arg) => {
 	jetpack.write(path.join(__dirname, "Data\\data.json"), data);
 });
 
+// Overwrite JSON file (write data)
+ipcMain.on("overwriteJSON", (evt, arg) => {
+	//Write new JSON
+	jetpack.write(path.join(__dirname, "Data\\data.json"), arg);
+});
+
 // Read JSON file (update data)
 ipcMain.on("requestData", (evt, arg) => {
 	// If JSON exists, read data
@@ -122,8 +128,10 @@ ipcMain.on("requestAdapters", (evt, arg) => {
 // Change active network
 ipcMain.on("changeNetwork", (evt, arg) => {
 	if (arg.DHCP == true) {
-		exec("cmd /c chcp 65001>nul && netsh interface ipv4 dhcp", (error, stdout, stderr) => {});
-		console.log("DHCP");
+		exec(
+			"cmd /c chcp 65001>nul && netsh interface ipv4 set address " + arg.adapter + " dhcp",
+			(error, stdout, stderr) => {}
+		);
 	} else {
 		exec(
 			"cmd /c chcp 65001>nul && netsh interface ipv4 set address " +
@@ -136,6 +144,5 @@ ipcMain.on("changeNetwork", (evt, arg) => {
 				arg.subnet,
 			(error, stdout, stderr) => {}
 		);
-		console.log("IP");
 	}
 });

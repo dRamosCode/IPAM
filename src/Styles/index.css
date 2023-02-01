@@ -179,6 +179,12 @@ th {
 	padding-top: 0.5em;
 	padding-bottom: 0.5em;
 }
+.delete {
+	background-image: url(./Images/Icons/delete.svg);
+	background-position: center;
+	background-size: contain;
+	background-repeat: no-repeat;
+}
 tr :first-child {
 	padding-left: 1em;
 	text-align: left;

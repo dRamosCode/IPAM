@@ -15,7 +15,6 @@ window.electron.receiveAdapters((evt, arg) => {
 
 // Activate network adapter
 function activateNetwork(data) {
-	console.log(data);
 	window.electron.changeNetwork(data);
 }
 
@@ -44,6 +43,31 @@ function saveModal(data) {
 	});
 }
 
+// Delete element
+function deleteElement(element) {
+	// New data array
+	let newData = [];
+
+	//Get data from JSON
+	window.electron.requestData();
+	window.electron.receiveData((evt, arg) => {
+		//JSON data
+		newData = arg;
+
+		// Find element in JSON file
+		let index = newData.find((item) => item.name === element.name);
+
+		// Delete element
+		newData.splice(index, 1);
+
+		// Overwrite JSON data
+		window.electron.overwriteJSON(newData);
+
+		// Update data list
+		updateData(newData);
+	});
+}
+
 // Read data from JSON and update on first scan
 window.electron.requestData();
 window.electron.receiveData((evt, arg) => {
@@ -53,7 +77,6 @@ window.electron.receiveData((evt, arg) => {
 // Update JSON list
 function updateData(data) {
 	// Render items
-	console.log(data);
 	itemList.render(<ItemTable items={data} />);
 }
 

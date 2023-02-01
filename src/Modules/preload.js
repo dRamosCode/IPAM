@@ -6,6 +6,7 @@ window.addEventListener("DOMContentLoaded", () => {
 		maximize: () => ipcRenderer.send("maximize"),
 		minimize: () => ipcRenderer.send("minimize"),
 		saveJSON: (data) => ipcRenderer.send("saveJSON", data),
+		overwriteJSON: (data) => ipcRenderer.send("overwriteJSON", data),
 		requestData: () => ipcRenderer.send("requestData"),
 		receiveData: (data) => {
 			ipcRenderer.on("updateData", data);
