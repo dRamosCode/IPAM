@@ -61,18 +61,21 @@ input {
 	flex-grow: 1;
 	background-color: var(--correct);
 	clip-path: circle(0.5em at center);
+	cursor: pointer;
 }
 .maximize {
 	height: 100%;
 	flex-grow: 1;
 	background-color: var(--warning);
 	clip-path: circle(0.5em at center);
+	cursor: pointer;
 }
 .close {
 	height: 100%;
 	flex-grow: 1;
 	background-color: var(--error);
 	clip-path: circle(0.5em at center);
+	cursor: pointer;
 }
 
 .content {
@@ -150,6 +153,7 @@ input {
 	border-radius: 5em;
 	text-align: center;
 	color: var(--bgLight2);
+	cursor: pointer;
 }
 .headings {
 	width: 100%;
@@ -184,6 +188,7 @@ th {
 	background-position: center;
 	background-size: contain;
 	background-repeat: no-repeat;
+	cursor: pointer;
 }
 tr :first-child {
 	padding-left: 1em;
@@ -195,6 +200,69 @@ tr :first-child {
 }
 .itemList tr:nth-child(even) {
 	background-color: var(--bgLight3);
+}
+
+/* Modal message window */
+.modalMessage {
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	padding-top: 1em;
+	padding-bottom: 1em;
+	padding-left: 1.5em;
+	padding-right: 1.5em;
+	width: auto;
+	z-index: 99;
+}
+
+.modalConfirmation {
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	width: auto;
+	background-color: var(--bgLight1);
+	z-index: 99;
+}
+.modalConfirmation p {
+	padding: 1.5em;
+}
+.modalConfirmation div {
+	display: flex;
+	flex-direction: row;
+	width: 100%;
+}
+
+.modalConfirmation button {
+	flex-grow: 1;
+	padding-top: 0.5em;
+	padding-bottom: 0.5em;
+	border: none;
+	cursor: pointer;
+}
+
+.alarm {
+	background-color: var(--messageError);
+}
+
+.warning {
+	background-color: var(--messageWarning);
+}
+
+.success {
+	background-color: var(--messageSuccess);
+}
+
+.neutral {
+	background-color: var(--bgLight3);
+}
+
+.shadow {
+	box-shadow: 0px 0px 0.2em rgba(0, 0, 0, 20%);
 }
 
 /*NEW ITEM MODAL WINDOW*/
@@ -307,6 +375,7 @@ tr :first-child {
 	padding-left: 0 !important;
 	padding-right: 0 !important;
 	border-radius: 1em !important;
+	cursor: pointer;
 }
 .checkBox:checked {
 	background-color: var(--correctLight) !important;
@@ -320,6 +389,7 @@ tr :first-child {
 	border-radius: 2em;
 	font-weight: bold;
 	background-color: var(--errorLight);
+	cursor: pointer;
 }
 .saveButton {
 	margin-right: 3em;
@@ -331,6 +401,7 @@ tr :first-child {
 	border-radius: 2em;
 	font-weight: bold;
 	background-color: var(--correctLight);
+	cursor: pointer;
 }
 .empty {
 	border-bottom: 0.2em solid var(--errorLight) !important;

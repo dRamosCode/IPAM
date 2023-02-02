@@ -5,6 +5,7 @@ let root;
 let bg = ReactDOM.createRoot(document.querySelector("#backgroundModal"));
 let newItem = ReactDOM.createRoot(document.querySelector("#newItemModal"));
 let itemList = ReactDOM.createRoot(document.querySelector("#itemList"));
+let modalMessage = ReactDOM.createRoot(document.querySelector("#modalMessage"));
 var adapters = [];
 
 // Get network adapters
@@ -16,6 +17,30 @@ window.electron.receiveAdapters((evt, arg) => {
 // Activate network adapter
 function activateNetwork(data) {
 	window.electron.changeNetwork(data);
+	showMessage("Network adapter succesfully changed", "success");
+	setTimeout(hideMessage, 2000);
+}
+
+// Show modal message
+function showMessage(msg, type) {
+	bg.render(<ModalBackground visible="true" />);
+	modalMessage.render(<ModalMessage message={msg} color={type} />);
+}
+
+function hideMessage() {
+	bg.render(<ModalBackground visible="false" />);
+	modalMessage.render(<ModalMessage message={"hide"} />);
+}
+
+// Show modal message
+function showConfirmation(data, msg, button1, button2) {
+	bg.render(<ModalBackground visible="true" />);
+	modalMessage.render(<ModalConfirmation element={data} message={msg} btn1={button1} btn2={button2} />);
+}
+
+function hideConfirmation() {
+	bg.render(<ModalBackground visible="false" />);
+	modalMessage.render(<ModalConfirmation message={"hide"} />);
 }
 
 // Show modal window
@@ -41,10 +66,16 @@ function saveModal(data) {
 	window.electron.receiveData((evt, arg) => {
 		updateData(arg);
 	});
+
+	showMessage("Network adapter succesfully saved", "success");
+	setTimeout(hideMessage, 2000);
 }
 
 // Delete element
 function deleteElement(element) {
+	// Hide confirmation modal
+	modalMessage.render(<ModalConfirmation message={"hide"} />);
+
 	// New data array
 	let newData = [];
 
@@ -55,16 +86,19 @@ function deleteElement(element) {
 		newData = arg;
 
 		// Find element in JSON file
-		let index = newData.find((item) => item.name === element.name);
+		let index = newData.findIndex((item) => item.name === element.name);
 
 		// Delete element
 		newData.splice(index, 1);
+		if (index >= 0) {
+			// Overwrite JSON data
+			window.electron.overwriteJSON(newData);
 
-		// Overwrite JSON data
-		window.electron.overwriteJSON(newData);
-
-		// Update data list
-		updateData(newData);
+			// Update data list
+			updateData(newData);
+			showMessage("Element deleted", "success");
+			setTimeout(hideMessage, 2000);
+		}
 	});
 }
 

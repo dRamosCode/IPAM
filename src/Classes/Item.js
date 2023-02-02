@@ -12,7 +12,7 @@ class Item extends React.Component {
 					<th>DHCP</th>
 					<th>DHCP</th>
 					<th>{this.props.item.adapter}</th>
-					<th className="delete" onClick={() => deleteElement(this.props.item)}></th>
+					<th className="delete" onClick={() => showConfirmation(this.props.item, "Seguro?", "Cancel", "Delete")}></th>
 				</tr>
 			);
 		} else {
@@ -23,7 +23,12 @@ class Item extends React.Component {
 					<th>{this.props.item.subnet}</th>
 					<th>{this.props.item.gateway}</th>
 					<th>{this.props.item.adapter}</th>
-					<th className="delete" onClick={() => deleteElement(this.props.item)}></th>
+					<th
+						className="delete"
+						onClick={() =>
+							showConfirmation(this.props.item, "Are you sure you want to delete this element?", "Cancel", "Delete")
+						}
+					></th>
 				</tr>
 			);
 		}
