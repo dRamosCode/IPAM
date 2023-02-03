@@ -12,7 +12,20 @@ class Item extends React.Component {
 					<th>DHCP</th>
 					<th>DHCP</th>
 					<th>{this.props.item.adapter}</th>
-					<th className="delete" onClick={() => showConfirmation(this.props.item, "Seguro?", "Cancel", "Delete")}></th>
+					<th className="itemSettings">
+						<img
+							src="../Styles/Images/Icons/edit.svg"
+							className="edit"
+							onClick={() => showModalEdit(this.props.item)}
+						></img>
+						<img
+							src="../Styles/Images/Icons/delete.svg"
+							className="delete"
+							onClick={() =>
+								showConfirmation(this.props.item, "Are you sure you want to delete this element?", "Cancel", "Delete")
+							}
+						></img>
+					</th>
 				</tr>
 			);
 		} else {
@@ -23,12 +36,20 @@ class Item extends React.Component {
 					<th>{this.props.item.subnet}</th>
 					<th>{this.props.item.gateway}</th>
 					<th>{this.props.item.adapter}</th>
-					<th
-						className="delete"
-						onClick={() =>
-							showConfirmation(this.props.item, "Are you sure you want to delete this element?", "Cancel", "Delete")
-						}
-					></th>
+					<th className="itemSettings">
+						<img
+							src="../Styles/Images/Icons/edit.svg"
+							className="edit"
+							onClick={() => showModalEdit(this.props.item)}
+						></img>
+						<img
+							src="../Styles/Images/Icons/delete.svg"
+							className="delete"
+							onClick={() =>
+								showConfirmation(this.props.item, "Are you sure you want to delete this element?", "Cancel", "Delete")
+							}
+						></img>
+					</th>
 				</tr>
 			);
 		}

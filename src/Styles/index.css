@@ -187,12 +187,22 @@ th {
 	padding-top: 0.5em;
 	padding-bottom: 0.5em;
 }
-.delete {
-	background-image: url(./Images/Icons/delete.svg);
-	background-position: center;
-	background-size: 2em;
-	background-repeat: no-repeat;
+.itemSettings {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: space-evenly;
+	height: 100%;
+	width: 100%;
+}
+.edit {
 	cursor: pointer;
+	width: 2em;
+	margin-left: -1em;
+}
+.delete {
+	cursor: pointer;
+	width: 2em;
 }
 tr :first-child {
 	padding-left: 1em;

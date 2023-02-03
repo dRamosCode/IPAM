@@ -13,7 +13,15 @@ class ModalAdapter extends React.Component {
 		this.props.setAdapter(event.target.value);
 	}
 
+	componentDidMount() {
+		this.props.setAdapter(this.state.value);
+	}
+
 	render() {
+		// Edition field
+		if (this.props.edit != "" && this.state.value == "") {
+			this.state.value = this.props.data.adapter;
+		}
 		if (this.state.value == "") {
 			return (
 				<select className="adapter empty" name="adapters" value={this.state.value} onChange={this.handleChange}>

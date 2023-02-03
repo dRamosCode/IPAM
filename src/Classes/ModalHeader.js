@@ -6,8 +6,13 @@ class ModalHeader extends React.Component {
 	render() {
 		return (
 			<div className="headerContainer">
-				<ModalName setName={this.props.setName} />
-				<ModalAdapter setAdapter={this.props.setAdapter} adapterList={adapters} />
+				<ModalName setName={this.props.setName} data={this.props.data} edit={this.props.edit} />
+				<ModalAdapter
+					setAdapter={this.props.setAdapter}
+					adapterList={adapters}
+					data={this.props.data}
+					edit={this.props.edit}
+				/>
 			</div>
 		);
 	}

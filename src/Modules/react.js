@@ -7,7 +7,15 @@ let newItem = ReactDOM.createRoot(document.querySelector("#newItemModal"));
 let itemList = ReactDOM.createRoot(document.querySelector("#itemList"));
 let modalMessage = ReactDOM.createRoot(document.querySelector("#modalMessage"));
 var adapters = [];
-
+let originalItem;
+const nullItem = {
+	DHCP: "false",
+	adapter: "",
+	gateway: "",
+	ipAddress: "",
+	name: "",
+	subnet: "",
+};
 // Get network adapters
 window.electron.requestAdapters();
 window.electron.receiveAdapters((evt, arg) => {
@@ -53,13 +61,26 @@ function hideConfirmation() {
 // Show modal window
 function showModal() {
 	bg.render(<ModalBackground visible="true" />);
-	newItem.render(<ModalContainer visible="true" />);
+	newItem.render(<ModalContainer visible="true" data={nullItem} edit={""} />);
 }
 
 // Cancel modal window
 function cancelModal() {
 	bg.render(<ModalBackground visible="false" />);
-	newItem.render(<ModalContainer visible="false" />);
+	newItem.render(<ModalContainer visible="false" data={nullItem} edit={""} />);
+}
+
+// Show modal edit window
+function showModalEdit(item) {
+	originalItem = item;
+	bg.render(<ModalBackground visible="true" />);
+	newItem.render(<ModalContainer visible="true" data={item} edit={"true"} />);
+}
+
+// Cancel modal edit window
+function cancelModalEdit() {
+	bg.render(<ModalBackground visible="false" />);
+	newItem.render(<ModalContainer visible="false" data={nullItem} edit={""} />);
 }
 
 // Save modal window
@@ -67,7 +88,7 @@ function saveModal(data) {
 	window.electron.saveJSON(data);
 
 	bg.render(<ModalBackground visible="false" />);
-	newItem.render(<ModalContainer visible="false" />);
+	newItem.render(<ModalContainer visible="false" data={nullItem} edit={""} />);
 
 	window.electron.requestData();
 	window.electron.receiveData((evt, arg) => {
@@ -76,6 +97,34 @@ function saveModal(data) {
 
 	showMessage("Network adapter succesfully saved", "success");
 	setTimeout(hideMessage, 2000);
+}
+
+// Save modal window
+function saveEditionModal(data) {
+	// Read data list
+	window.electron.requestData();
+	window.electron.receiveData((evt, arg) => {
+		// Find original data item to edit
+		for (let i = 0; i < arg.length; i++) {
+			if (originalItem.name == arg[i].name) {
+				// Edit original data item
+				arg[i] = data;
+			}
+		}
+		// Overwrite data list
+		window.electron.overwriteJSON(arg);
+
+		// Update data list
+		updateData(arg);
+
+		// Hide Modal
+		bg.render(<ModalBackground visible="false" />);
+		newItem.render(<ModalContainer visible="false" data={nullItem} edit={""} />);
+
+		// Show success message
+		showMessage("Network adapter succesfully saved", "success");
+		setTimeout(hideMessage, 2000);
+	});
 }
 
 // Delete element

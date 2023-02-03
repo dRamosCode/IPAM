@@ -4,6 +4,7 @@ class ModalName extends React.Component {
 		this.handleChange = this.handleChange.bind(this);
 		this.state = {
 			value: "",
+			restored: false,
 		};
 	}
 
@@ -11,6 +12,14 @@ class ModalName extends React.Component {
 	handleChange(event) {
 		this.setState({ value: event.target.value });
 		this.props.setName(event.target.value);
+	}
+
+	componentDidMount() {
+		if (this.props.edit != "" && this.state.value == "") {
+			this.state.value = this.props.data.name;
+		}
+		this.props.setName(this.state.value);
+		this.setState({ restored: true });
 	}
 
 	render() {
