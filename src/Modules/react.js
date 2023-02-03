@@ -27,17 +27,24 @@ function showMessage(msg, type) {
 	modalMessage.render(<ModalMessage message={msg} color={type} />);
 }
 
+// Hide modal message
 function hideMessage() {
 	bg.render(<ModalBackground visible="false" />);
 	modalMessage.render(<ModalMessage message={"hide"} />);
 }
 
-// Show modal message
+// Hide modal message on modal
+function hideMessageOnTop() {
+	modalMessage.render(<ModalMessage message={"hide"} />);
+}
+
+// Show modal confirmation
 function showConfirmation(data, msg, button1, button2) {
 	bg.render(<ModalBackground visible="true" />);
 	modalMessage.render(<ModalConfirmation element={data} message={msg} btn1={button1} btn2={button2} />);
 }
 
+// Hide modal confirmation
 function hideConfirmation() {
 	bg.render(<ModalBackground visible="false" />);
 	modalMessage.render(<ModalConfirmation message={"hide"} />);

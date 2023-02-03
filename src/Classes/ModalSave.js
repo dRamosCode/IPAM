@@ -24,6 +24,9 @@ class ModalSave extends React.Component {
 			(this.props.parentState.DHCP == true && this.props.parentState.name != "" && this.props.parentState.adapter != "")
 		) {
 			saveModal(this.props.parentState);
+		} else {
+			showMessage("All fields are required to save", "alarm");
+			setTimeout(hideMessageOnTop, 2000);
 		}
 	}
 

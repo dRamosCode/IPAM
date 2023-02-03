@@ -159,6 +159,9 @@ input {
 	width: 100%;
 	background-color: var(--bgLight2);
 	border-bottom: 0.1em solid var(--bgLight5);
+	table-layout: fixed;
+	font-family: Lato-Bold;
+	user-select: none;
 }
 
 /*CONTENT TABLE*/
@@ -169,6 +172,7 @@ input {
 	overflow: auto;
 	-ms-overflow-style: none; /* IE and Edge */
 	scrollbar-width: none; /* Firefox */
+	user-select: none;
 }
 .itemTable::-webkit-scrollbar {
 	display: none;
@@ -186,7 +190,7 @@ th {
 .delete {
 	background-image: url(./Images/Icons/delete.svg);
 	background-position: center;
-	background-size: contain;
+	background-size: 2em;
 	background-repeat: no-repeat;
 	cursor: pointer;
 }
@@ -296,7 +300,7 @@ tr :first-child {
 	padding-top: 0.7em;
 	padding-bottom: 0.7em;
 	border: none;
-	border-radius: 0.5em;
+	border-radius: 0.3em;
 	background-color: var(--bgLight3);
 }
 .headerContainer {
@@ -322,7 +326,7 @@ tr :first-child {
 	width: 90%;
 	display: flex;
 	flex-direction: row;
-	align-items: center;
+	align-items: baseline;
 	justify-content: space-between;
 	gap: 2em;
 	white-space: nowrap;
@@ -330,7 +334,7 @@ tr :first-child {
 .ipAddress {
 	display: flex;
 	flex-direction: row;
-	align-items: baseline;
+	align-items: flex-start;
 	justify-content: space-evenly;
 }
 .ipElement {
@@ -404,7 +408,6 @@ tr :first-child {
 	cursor: pointer;
 }
 .empty {
-	border-bottom: 0.2em solid var(--errorLight) !important;
 	background-color: rgba(255, 0, 0, 5%) !important;
 }
 .disabled {

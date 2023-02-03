@@ -21,6 +21,7 @@ class ModalName extends React.Component {
 					className="name empty"
 					type="text"
 					placeholder="Name..."
+					maxLength="12"
 					value={this.state.value}
 					onChange={this.handleChange}
 				/>
@@ -33,6 +34,7 @@ class ModalName extends React.Component {
 					className="name"
 					type="text"
 					placeholder="Name..."
+					maxLength="12"
 					value={this.state.value}
 					onChange={this.handleChange}
 				/>
