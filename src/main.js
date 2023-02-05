@@ -9,6 +9,10 @@ var jetpack = require("fs-jetpack");
 
 let mainWindow;
 let adapters = [];
+let userRights;
+
+// Force close app during app installation
+if (require("electron-squirrel-startup")) app.quit();
 
 // Create new window
 const createWindow = () => {
@@ -19,6 +23,7 @@ const createWindow = () => {
 		minHeight: 250,
 		frame: false,
 		autoHideMenuBar: true,
+		icon: path.join(__dirname, "Styles\\Images\\Icons\\ipswitch.ico"),
 		webPreferences: {
 			preload: path.join(__dirname, "Modules\\preload.js"),
 		},
@@ -39,8 +44,12 @@ app.whenReady().then(() => {
 	createWindow();
 });
 
-// Get network adapters
+// Check Admin rights
+exec("NET SESSION", function (err, so, se) {
+	userRights = se.length === 0 ? true : false;
+});
 
+// Get network adapters
 exec("cmd /c chcp 65001>nul && netsh interface ipv4 show addresses", (error, stdout, stderr) => {
 	// Variables
 	let index = 0;
@@ -66,6 +75,11 @@ exec("cmd /c chcp 65001>nul && netsh interface ipv4 show addresses", (error, std
 });
 
 //----Inter Process Comunication----
+
+// Request user rights
+ipcMain.on("requestRights", (evt, arg) => {
+	mainWindow.webContents.send("sendRights", userRights);
+});
 
 // Close app
 ipcMain.on("close", (evt, arg) => {

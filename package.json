@@ -1,8 +1,10 @@
 {
-	"name": "IPAM",
-	"productName": "IP Address Manager",
+	"name": "ipswitch",
+	"productName": "ipswitch",
 	"version": "1.0.0",
-	"description": "My Electron application description",
+	"description": "IP Adress Manager (IPAM)",
+	"icon": "Styles/Images/Icons/ipswitch.ico",
+	"setupIcon": "Styles/Images/Icons/ipswitch.ico",
 	"main": "src/main.js",
 	"scripts": {
 		"start": "electron-forge start",
@@ -13,8 +15,7 @@
 	},
 	"keywords": [],
 	"author": {
-		"name": "Diego Ramos",
-		"email": "name@example.com"
+		"name": "dRamosCode"
 	},
 	"license": "MIT",
 	"dependencies": {

@@ -16,5 +16,9 @@ window.addEventListener("DOMContentLoaded", () => {
 			ipcRenderer.on("sendAdapters", adapters);
 		},
 		changeNetwork: (network) => ipcRenderer.send("changeNetwork", network),
+		requestRights: () => ipcRenderer.send("requestRights"),
+		receiveRights: (rights) => {
+			ipcRenderer.on("sendRights", rights);
+		},
 	});
 });

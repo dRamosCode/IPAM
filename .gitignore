@@ -1,6 +1,9 @@
 # Data
 src/Data/*
 
+# out
+/out/
+
 # Logs
 logs
 *.log

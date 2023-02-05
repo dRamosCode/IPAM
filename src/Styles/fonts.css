@@ -18,3 +18,7 @@
 	font-family: Lato-Thin;
 	src: url(../Fonts/Lato-Thin.ttf);
 }
+@font-face {
+	font-family: Lato-Italic;
+	src: url(../Fonts/Lato-Italic.ttf);
+}

@@ -38,15 +38,25 @@ input {
 }
 .logo {
 	width: 3em;
-	height: 80%;
+	height: 60%;
 	margin-left: 0.5em;
-	background-color: var(--bgLight2);
-	clip-path: circle(1em at center);
+	background-image: url(./Images/Icons/ipswitch.svg);
+	background-position: center;
+	background-size: contain;
+	background-repeat: no-repeat;
 }
 .brandName {
-	color: var(--bgLight2);
 	flex-grow: 1;
+	font-size: 1.5em;
+	font-family: Lato-Italic;
 }
+.brandNameFirstColor {
+	color: var(--bgComplementary5);
+}
+.brandNameSecondColor {
+	color: var(--bgLight2);
+}
+
 .appControl {
 	margin-right: 1em;
 	width: 5em;

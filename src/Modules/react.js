@@ -16,6 +16,14 @@ const nullItem = {
 	name: "",
 	subnet: "",
 };
+// Get user rights
+window.electron.requestRights();
+window.electron.receiveRights((evt, arg) => {
+	if (arg == false) {
+		showMessage("Administrator rights needed to run this app", "alarm");
+	}
+});
+
 // Get network adapters
 window.electron.requestAdapters();
 window.electron.receiveAdapters((evt, arg) => {
