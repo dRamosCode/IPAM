@@ -11,16 +11,43 @@ class ModalSave extends React.Component {
 	}
 
 	// Functions
+	checkEmpty(string) {
+		// Check if all fields are set
+		let counter = 0;
+		let empty = false;
+		for (let i = 0; i < string.length; i++) {
+			if (string[i] != "" && string[i] != ".") {
+				counter++;
+			}
+			if (string[i] == "." && counter == 0) {
+				empty = true;
+				return true;
+			}
+			if (string[i] == "." && counter > 0) {
+				counter = 0;
+			}
+			if (i == string.length - 1 && string[i] == ".") {
+				return true;
+			}
+		}
+		return false;
+	}
+
 	checkData() {
+		// Check fields
+		let emptyIp = this.checkEmpty(this.props.parentState.ipAddress);
+		let emptySubnet = this.checkEmpty(this.props.parentState.subnet);
+		let emptyGateway = this.checkEmpty(this.props.parentState.gateway);
+
 		if (
 			(this.props.parentState.name != "" &&
 				this.props.parentState.adapter != "" &&
 				this.props.parentState.ipAddress != "" &&
-				this.props.parentState.ipAddress.length > 6 &&
+				emptyIp == false &&
 				this.props.parentState.subnet != "" &&
-				this.props.parentState.subnet.length > 6 &&
+				emptySubnet == false &&
 				this.props.parentState.gateway != "" &&
-				this.props.parentState.gateway.length > 6) ||
+				emptyGateway == false) ||
 			(this.props.parentState.DHCP == true && this.props.parentState.name != "" && this.props.parentState.adapter != "")
 		) {
 			// Save edition item

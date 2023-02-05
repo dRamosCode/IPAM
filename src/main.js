@@ -5,7 +5,7 @@ const path = require("path");
 const { exec } = require("node:child_process");
 var jetpack = require("fs-jetpack");
 
-require("electron-reload")(__dirname);
+//require("electron-reload")(__dirname);
 
 let mainWindow;
 let adapters = [];
@@ -28,7 +28,7 @@ const createWindow = () => {
 	mainWindow.webContents.openDevTools();
 
 	//Electron reload
-	mainWindow.reload();
+	//mainWindow.reload();
 
 	//Load Index.html
 	mainWindow.loadFile(path.join(__dirname, "HTML\\index.html"));

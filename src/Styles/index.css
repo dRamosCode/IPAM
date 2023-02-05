@@ -197,12 +197,12 @@ th {
 }
 .edit {
 	cursor: pointer;
-	width: 2em;
+	width: 1.5em;
 	margin-left: -1em;
 }
 .delete {
 	cursor: pointer;
-	width: 2em;
+	width: 1.5em;
 }
 tr :first-child {
 	padding-left: 1em;
