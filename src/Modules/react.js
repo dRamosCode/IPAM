@@ -20,7 +20,7 @@ const nullItem = {
 window.electron.requestRights();
 window.electron.receiveRights((evt, arg) => {
 	if (arg == false) {
-		showMessage("Administrator rights needed to run this app", "alarm");
+		//showMessage("Administrator rights needed to run this app", "alarm");
 	}
 });
 
@@ -33,8 +33,30 @@ window.electron.receiveAdapters((evt, arg) => {
 // Activate network adapter
 function activateNetwork(data) {
 	window.electron.changeNetwork(data);
-	showMessage("Network adapter succesfully changed", "success");
-	setTimeout(hideMessage, 2000);
+	showMessage("Loading...", "warning");
+	setTimeout(algo, 2000, data);
+}
+
+function algo(data) {
+	// Check if adapter was changed
+	window.electron.requestAdapterInfo(data.adapter);
+	window.electron.receiveAdapterInfo((evt, arg) => {
+		// Success
+		if (
+			(arg.dhcp == true && data.DHCP == true) ||
+			(arg.ip == data.ipAddress &&
+				(arg.subnet == data.subnet || arg.subnet == undefined) &&
+				(arg.gateway == data.gateway || arg.gateway == undefined))
+		) {
+			showMessage("Network adapter succesfully changed", "success");
+			setTimeout(hideMessage, 1000);
+		}
+		// Error
+		else {
+			showMessage("Unable to change network adapter", "alarm");
+			setTimeout(hideMessage, 1000);
+		}
+	});
 }
 
 // Show modal message

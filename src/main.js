@@ -4,6 +4,7 @@ const { app, BrowserWindow, ipcMain } = require("electron");
 const path = require("path");
 const { exec } = require("node:child_process");
 var jetpack = require("fs-jetpack");
+var network = require("network");
 
 //require("electron-reload")(__dirname);
 
@@ -153,10 +154,50 @@ ipcMain.on("changeNetwork", (evt, arg) => {
 				" static " +
 				arg.ipAddress +
 				" " +
-				arg.gateway +
+				arg.subnet +
 				" " +
-				arg.subnet,
+				arg.gateway,
 			(error, stdout, stderr) => {}
 		);
 	}
+});
+
+// Get network adapter info
+ipcMain.on("requestAdapterInfo", (evt, arg) => {
+	// Variables
+	let info = {
+		dhcp: false,
+		ip: "",
+		subnet: "",
+		gateway: "",
+	};
+
+	// Get adapter list
+	network.get_interfaces_list(function (err, list) {
+		// Get current adapter info
+		for (let i = 0; i < list.length; i++) {
+			// If current adapter get data
+			if (list[i].name == arg) {
+				info.ip = list[i].ip_address;
+				info.subnet = list[i].netmask;
+				info.gateway = list[i].gateway_ip;
+			}
+		}
+
+		// Get DHCP
+		exec(
+			"cmd /c chcp 65001>nul && netsh interface ipv4 show addresses " + arg + " | findstr DHCP",
+			(error, stdout, stderr) => {
+				let index = stdout.indexOf(":") + 1;
+				for (let i = index; i < stdout.length; i++) {
+					if (stdout[i] != " " && (stdout[i] == "S" || stdout[i] == "Y")) {
+						info.dhcp = true;
+					}
+				}
+
+				// Send info to renderer process
+				mainWindow.webContents.send("sendAdapterInfo", info);
+			}
+		);
+	});
 });

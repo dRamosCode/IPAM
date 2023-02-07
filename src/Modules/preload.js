@@ -15,10 +15,15 @@ window.addEventListener("DOMContentLoaded", () => {
 		receiveAdapters: (adapters) => {
 			ipcRenderer.on("sendAdapters", adapters);
 		},
+		requestAdapterInfo: (adapter) => ipcRenderer.send("requestAdapterInfo", adapter),
+		receiveAdapterInfo: (adapterInfo) => {
+			ipcRenderer.on("sendAdapterInfo", adapterInfo);
+		},
 		changeNetwork: (network) => ipcRenderer.send("changeNetwork", network),
 		requestRights: () => ipcRenderer.send("requestRights"),
 		receiveRights: (rights) => {
 			ipcRenderer.on("sendRights", rights);
 		},
 	});
+	ipcRenderer.setMaxListeners(1);
 });
