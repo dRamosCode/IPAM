@@ -20,7 +20,7 @@ const nullItem = {
 window.electron.requestRights();
 window.electron.receiveRights((evt, arg) => {
 	if (arg == false) {
-		//showMessage("Administrator rights needed to run this app", "alarm");
+		showMessage("Administrator rights needed to run this app", "alarm");
 	}
 });
 
@@ -198,6 +198,25 @@ window.electron.receiveData((evt, arg) => {
 function updateData(data) {
 	// Render items
 	itemList.render(<ItemTable items={data} />);
+}
+
+// Update JSON list
+function updateSearch(search) {
+	// Variables
+	let newList = [];
+
+	window.electron.requestData();
+	window.electron.receiveData((evt, arg) => {
+		for (const item of arg) {
+			if (item.name.includes(search)) {
+				newList.push(item);
+			}
+		}
+
+		updateData(newList);
+	});
+	// Render items
+	itemList.render(<ItemTable items={newList} />);
 }
 
 // Add new item button

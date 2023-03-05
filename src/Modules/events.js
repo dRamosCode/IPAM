@@ -11,4 +11,10 @@ window.addEventListener("DOMContentLoaded", () => {
 	$(".minimize").click(function () {
 		window.electron.minimize();
 	});
+	// Change search text
+	const input = $(".search").on("keyup", function () {
+		//Get text
+		let text = $(".search").val();
+		updateSearch(text);
+	});
 });
