@@ -30,7 +30,7 @@ input {
 	flex-shrink: 0;
 	gap: 1em;
 	background-color: var(--bgDark2);
-	box-shadow: 0px 0px 0.5em rgba(0, 0, 0, 50%);
+	box-shadow: 0px 0.1em 0.2em rgba(0, 0, 0, 0.2);
 	z-index: 3;
 	-webkit-user-select: none;
 	user-select: none;
@@ -38,7 +38,7 @@ input {
 }
 .logo {
 	width: 3em;
-	height: 60%;
+	height: 70%;
 	margin-left: 0.5em;
 	background-image: url(./Images/Icons/ipswitch.svg);
 	background-position: center;
@@ -49,6 +49,7 @@ input {
 	flex-grow: 1;
 	font-size: 1.5em;
 	font-family: Lato-Italic;
+	margin-left: -0.75em;
 }
 .brandNameFirstColor {
 	color: var(--bgComplementary5);
@@ -72,6 +73,10 @@ input {
 	background-color: var(--correct);
 	clip-path: circle(0.5em at center);
 	cursor: pointer;
+	background-image: url(./Images/Icons/minimize.svg);
+	background-position: 0 30%;
+	background-size: 0;
+	background-repeat: no-repeat;
 }
 .maximize {
 	height: 100%;
@@ -79,6 +84,10 @@ input {
 	background-color: var(--warning);
 	clip-path: circle(0.5em at center);
 	cursor: pointer;
+	background-image: url(./Images/Icons/maximize.svg);
+	background-position: center;
+	background-size: 0;
+	background-repeat: no-repeat;
 }
 .close {
 	height: 100%;
@@ -86,6 +95,10 @@ input {
 	background-color: var(--error);
 	clip-path: circle(0.5em at center);
 	cursor: pointer;
+	background-image: url(./Images/Icons/close.svg);
+	background-position: center;
+	background-size: 0;
+	background-repeat: no-repeat;
 }
 
 .content {
@@ -103,7 +116,7 @@ input {
 	align-items: center;
 	flex-shrink: 0;
 	background-color: var(--bgDark4);
-	box-shadow: 0px 0px 0.5em rgba(0, 0, 0, 50%);
+	box-shadow: 0.1em 0px 0.2em rgba(0, 0, 0, 0.2);
 	z-index: 2;
 }
 .settings {
@@ -133,7 +146,7 @@ input {
 	justify-content: flex-end;
 	gap: 0.5em;
 	background-color: var(--bgLight2);
-	box-shadow: 0px 0px 0.5em rgba(0, 0, 0, 50%);
+	box-shadow: 0px 0.1em 0.2em rgba(0, 0, 0, 0.2);
 	z-index: 1;
 }
 .searchIcon {
@@ -148,7 +161,7 @@ input {
 .search {
 	width: 13em;
 	height: 60%;
-	box-shadow: inset 0px 0px 0.3em rgba(0, 0, 0, 50%);
+	box-shadow: inset 0px 0.1em 0.2em rgba(0, 0, 0, 0.08);
 	border: none;
 	border-radius: 5em;
 	background-color: var(--bgLight1);
@@ -160,10 +173,14 @@ input {
 	padding-bottom: 0.2em;
 	margin-right: 1em;
 	background-color: var(--bgComplementary6);
-	border-radius: 5em;
+	border: 0.15em solid var(--bgComplementary6);
+	border-radius: 0.3em;
 	text-align: center;
+	font-weight: bold;
 	color: var(--bgLight2);
 	cursor: pointer;
+	-webkit-user-select: none;
+	user-select: none;
 }
 .headings {
 	width: 100%;
@@ -191,6 +208,7 @@ input {
 	width: 100%;
 	border-collapse: collapse;
 	table-layout: fixed;
+	border-left: 0.3em solid var(--bgComplementary1);
 }
 
 th {
@@ -198,6 +216,7 @@ th {
 	padding-bottom: 0.5em;
 }
 .itemSettings {
+	visibility: hidden;
 	display: flex;
 	flex-direction: row;
 	align-items: center;
@@ -238,6 +257,8 @@ tr :first-child {
 	padding-right: 1.5em;
 	width: auto;
 	z-index: 99;
+	-webkit-user-select: none;
+	user-select: none;
 }
 
 .modalConfirmation {
@@ -265,28 +286,31 @@ tr :first-child {
 	flex-grow: 1;
 	padding-top: 0.5em;
 	padding-bottom: 0.5em;
-	border: none;
 	cursor: pointer;
 }
 
 .alarm {
 	background-color: var(--messageError);
+	border: 0.15em solid var(--messageError);
 }
 
 .warning {
 	background-color: var(--messageWarning);
+	border: none;
 }
 
 .success {
 	background-color: var(--messageSuccess);
+	border: none;
 }
 
 .neutral {
-	background-color: var(--bgLight3);
+	background-color: var(--bgLight1);
+	border: 0.15em solid var(--bgLight3);
 }
 
 .shadow {
-	box-shadow: 0px 0px 0.2em rgba(0, 0, 0, 20%);
+	box-shadow: 0px 0.1em 0.2em rgba(0, 0, 0, 20%);
 }
 
 /*NEW ITEM MODAL WINDOW*/
@@ -299,7 +323,7 @@ tr :first-child {
 	width: 60%;
 	height: 60%;
 	background-color: white;
-	box-shadow: 0px 0px 0.5em rgba(0, 0, 0, 50%);
+	box-shadow: 0px 0.1em 0.2em rgba(0, 0, 0, 0.2);
 	border-radius: 1em;
 	display: flex;
 	flex-direction: column;
@@ -382,7 +406,7 @@ tr :first-child {
 	padding-right: 1em;
 	padding-left: 1em;
 	border: none;
-	border-radius: 0.5em;
+	border-radius: 0.3em;
 	font-weight: bold;
 	background-color: var(--bgLight3);
 }
@@ -409,10 +433,10 @@ tr :first-child {
 	padding-bottom: 0.5em;
 	padding-right: 2em;
 	padding-left: 2em;
-	border: none;
-	border-radius: 2em;
+	border: 0.15em solid var(--bgLight5);
+	border-radius: 0.3em;
 	font-weight: bold;
-	background-color: var(--errorLight);
+	background-color: var(--bgLight1);
 	cursor: pointer;
 }
 .saveButton {
@@ -421,8 +445,8 @@ tr :first-child {
 	padding-bottom: 0.5em;
 	padding-right: 2em;
 	padding-left: 2em;
-	border: none;
-	border-radius: 2em;
+	border: 0.15em solid var(--correctLight);
+	border-radius: 0.3em;
 	font-weight: bold;
 	background-color: var(--correctLight);
 	cursor: pointer;
@@ -434,4 +458,71 @@ tr :first-child {
 	background-color: var(--bgLight4) !important;
 	color: var(--bgLight4) !important;
 	pointer-events: none !important;
+}
+
+/*HOVERS*/
+.cancelButton:hover {
+	border: 0.15em solid var(--bgComplementary4);
+}
+.cancelButton:active {
+	border: 0.15em solid var(--bgComplementary4);
+	background-color: var(--bgLight2);
+}
+.saveButton:hover {
+	border: 0.15em solid var(--bgComplementary4);
+}
+.saveButton:active {
+	border: 0.15em solid var(--bgComplementary4);
+	background-color: var(--correct);
+}
+.checkBox:hover {
+	border: 0.15em solid var(--bgComplementary4);
+}
+.checkBox:active {
+	border: 0.15em solid var(--bgComplementary4);
+	background-color: var(--correctLight);
+}
+input:hover {
+	outline: 0.15em solid var(--bgComplementary4);
+}
+input:not(.empty):focus {
+	outline: 0.15em solid var(--bgComplementary4);
+}
+select:hover {
+	outline: 0.15em solid var(--bgComplementary4);
+}
+select:not(.empty):focus {
+	outline: 0.15em solid var(--bgComplementary4);
+}
+button.neutral:hover {
+	border: 0.15em solid var(--bgComplementary4);
+}
+button.neutral:focus {
+	background-color: var(--bgComplementary1);
+	border: 0.15em solid var(--bgComplementary4);
+}
+button.alarm:hover {
+	border: 0.15em solid var(--bgComplementary4);
+}
+button.alarm:focus {
+	background-color: var(--messageErrorDark);
+	border: 0.15em solid var(--bgComplementary4);
+}
+.itemList tr:hover {
+	border-left: 0.3em solid var(--bgComplementary4);
+}
+.itemList tr:hover .itemSettings {
+	visibility: visible;
+}
+.appControl:hover div {
+	background-size: contain;
+}
+.newItem:hover {
+	border: 0.15em solid var(--bgComplementary4);
+}
+.edit:hover {
+	filter: invert(31%) sepia(100%) saturate(889%) hue-rotate(172deg) brightness(103%) contrast(106%);
+}
+.delete:hover {
+	filter: invert(31%) sepia(100%) saturate(889%) hue-rotate(172deg) brightness(103%) contrast(106%);
 }

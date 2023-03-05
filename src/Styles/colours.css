@@ -26,6 +26,9 @@
 	--correctLight: rgba(19, 228, 36, 0.507);
 
 	--messageError: rgb(255, 123, 123);
+	--messageErrorDark: rgb(255, 111, 111);
 	--messageWarning: rgb(255, 240, 126);
+	--messageWarningDark: rgb(255, 238, 113);
 	--messageSuccess: rgb(131, 255, 141);
+	--messageSuccessDark: rgb(113, 255, 125);
 }
