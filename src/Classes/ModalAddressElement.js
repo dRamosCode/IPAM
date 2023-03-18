@@ -9,10 +9,21 @@ class ModalAddressElement extends React.Component {
 	}
 
 	handleChange(event) {
-		this.setState({ value: event.target.value }, this.callback);
+		let newValue = this.checkInput(event.target.value);
+		this.setState({ value: newValue }, this.callback);
 	}
 	callback() {
 		this.props.setAddress(this.state.value);
+	}
+	checkInput(value) {
+		// Non numeric input or too big
+		if (isNaN(value) == true || parseInt(value) > 255) {
+			return value.slice(0, -1);
+		}
+		// Numeric input
+		else {
+			return value;
+		}
 	}
 
 	componentDidMount() {
