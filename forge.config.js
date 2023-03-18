@@ -1,10 +1,16 @@
 module.exports = {
-	packagerConfig: {},
+	packagerConfig: {
+		icon: "./src/Styles/Images/Icons/ipswitch",
+	},
 	rebuildConfig: {},
 	makers: [
 		{
 			name: "@electron-forge/maker-squirrel",
-			config: {},
+			config: {
+				iconUrl:
+					"https://raw.githubusercontent.com/dRamosCode/IPAM/master/src/Styles/Images/Icons/ipswitch.ico?token=GHSAT0AAAAAACAGZH624LS4NNCTCFO5JR4MZAV4YKA",
+				setupIcon: "src/Styles/Images/Icons/ipswitch.ico",
+			},
 		},
 		{
 			name: "@electron-forge/maker-zip",
