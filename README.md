@@ -1,4 +1,5 @@
-![algo](https://github.com/dRamosCode/IPAM/blob/master/docs/Images/Logo.png?raw=true)
+<p align="center" > 
+<img src="https://github.com/dRamosCode/IPAM/blob/master/docs/Images/Logo.png?raw=true"></img></p>
 
 <h1 align="center">Easy to use Ip Address Manager</h1>
 
@@ -16,8 +17,6 @@ Thanks to a friendly interface, it allows users to interact with network adapate
 It gets advantage of the CLI, by accessing the active network adapters and reading or writing the configuration.
 
 > Administrator rights must be granted to the app in order to be able to change network adapter configuration via CLI
-
----
 
 ![NewItem](https://github.com/dRamosCode/IPAM/blob/master/docs/Images/Main.png?raw=true)
 
@@ -69,39 +68,37 @@ git clone https://github.com/dRamosCode/IPAM.git .
 npm install --save electron@latest
 ```
 
-4. Install all the packages needed to develop and run the app.
+> All packages needed will be installed automatically when installing electron
 
-> Packages may be installed automatically when installing electron
+App is ready for development.
 
-Your app is ready to continue developing.
+# Usage
 
-## Usage
-
-### Add new adapter configuration
+## Add new adapter configuration
 
 Click on the `New` button and fill the fields to add a new adapter configuration.
 
 ![NewItem](https://github.com/dRamosCode/IPAM/blob/master/docs/GIF/NewItem.gif?raw=true)
 
-### Edit existing adapter configuration
+## Edit existing adapter configuration
 
 Hover over the item and click on the pencil icon under settings. The current configuration will be displayed to be edited.
 
 ![Edit](https://github.com/dRamosCode/IPAM/blob/master/docs/GIF/Edit.gif?raw=true)
 
-### Delete item from list
+## Delete item from list
 
 Hover over the item and click on the trash icon under settings. A confirmation popup will be displayed.
 
 ![Delete](https://github.com/dRamosCode/IPAM/blob/master/docs/GIF/Delete.gif?raw=true)
 
-### Activate adapter configuration
+## Activate adapter configuration
 
 Change between active adapter configurations by double-clicking the chosen item.
 
 ![Activate](https://github.com/dRamosCode/IPAM/blob/master/docs/GIF/Activate.gif?raw=true)
 
-### Search
+## Search
 
 IpSwitch allows to filter by item name. Any item including the text in its name will be displayed.
 
@@ -111,13 +108,10 @@ IpSwitch allows to filter by item name. Any item including the text in its name 
 
 # Contributing
 
-Clone repo and create a new branch:
-
-$ git checkout https://github.com/******/**** -b name_for_new_branch.
-
-Make changes and test
-
-Submit Pull Request with comprehensive description of changes
+1. Prepare your local development environment as explained before.
+2. Make changes and test
+3. Commit to a new branch
+4. Submit a Pull Request
 
 # License
 
