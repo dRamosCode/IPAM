@@ -1,12 +1,12 @@
 <p align="center" > 
-<img src="https://github.com/dRamosCode/IPAM/blob/master/docs/Images/Logo.png?raw=true"></img></p>
+<img src="https://github.com/dRamosCode/IpSwitch/blob/master/docs/Images/Logo.png?raw=true"></img></p>
 
 <h1 align="center">Easy to use Ip Address Manager</h1>
 
-![Version](https://img.shields.io/github/package-json/v/dRamosCode/IPAM?style=for-the-badge)
-![ReleaseDate](https://img.shields.io/github/release-date/dRamosCode/IPAM?style=for-the-badge)
-![Downloads](https://img.shields.io/github/downloads/dRamosCode/IPAM/total?style=for-the-badge)
-![License](https://img.shields.io/github/license/dRamosCode/IPAM?style=for-the-badge)
+![Version](https://img.shields.io/github/package-json/v/dRamosCode/IpSwitch?style=for-the-badge)
+![ReleaseDate](https://img.shields.io/github/release-date/dRamosCode/IpSwitch?style=for-the-badge)
+![Downloads](https://img.shields.io/github/downloads/dRamosCode/IpSwitch/total?style=for-the-badge)
+![License](https://img.shields.io/github/license/dRamosCode/IpSwitch?style=for-the-badge)
 
 # About
 
@@ -18,7 +18,7 @@ It gets advantage of the CLI, by accessing the active network adapters and readi
 
 > Administrator rights must be granted to the app in order to be able to change network adapter configuration via CLI
 
-![NewItem](https://github.com/dRamosCode/IPAM/blob/master/docs/Images/Main.png?raw=true)
+![NewItem](https://github.com/dRamosCode/IpSwitch/blob/master/docs/Images/Main.png?raw=true)
 
 ## Built with
 
@@ -57,7 +57,7 @@ npm install -g npm
 2. Clone the repository from Github.
 
 ```
-git clone https://github.com/dRamosCode/IPAM.git .
+git clone https://github.com/dRamosCode/IpSwitch.git .
 ```
 
 > The dot is used to clone the repository without creating a new folder.
@@ -78,25 +78,25 @@ App is ready for development.
 
 Click on the `New` button and fill the fields to add a new adapter configuration.
 
-![NewItem](https://github.com/dRamosCode/IPAM/blob/master/docs/GIF/NewItem.gif?raw=true)
+![NewItem](https://github.com/dRamosCode/IpSwitch/blob/master/docs/GIF/NewItem.gif?raw=true)
 
 ## Edit existing adapter configuration
 
 Hover over the item and click on the pencil icon under settings. The current configuration will be displayed to be edited.
 
-![Edit](https://github.com/dRamosCode/IPAM/blob/master/docs/GIF/Edit.gif?raw=true)
+![Edit](https://github.com/dRamosCode/IpSwitch/blob/master/docs/GIF/Edit.gif?raw=true)
 
 ## Delete item from list
 
 Hover over the item and click on the trash icon under settings. A confirmation popup will be displayed.
 
-![Delete](https://github.com/dRamosCode/IPAM/blob/master/docs/GIF/Delete.gif?raw=true)
+![Delete](https://github.com/dRamosCode/IpSwitch/blob/master/docs/GIF/Delete.gif?raw=true)
 
 ## Activate adapter configuration
 
 Change between active adapter configurations by double-clicking the chosen item.
 
-![Activate](https://github.com/dRamosCode/IPAM/blob/master/docs/GIF/Activate.gif?raw=true)
+![Activate](https://github.com/dRamosCode/IpSwitch/blob/master/docs/GIF/Activate.gif?raw=true)
 
 ## Search
 
@@ -104,7 +104,7 @@ IpSwitch allows to filter by item name. Any item including the text in its name 
 
 > Uppercase and lowercase distinction is enabled.
 
-![Search](https://github.com/dRamosCode/IPAM/blob/master/docs/GIF/Search.gif?raw=true)
+![Search](https://github.com/dRamosCode/IpSwitch/blob/master/docs/GIF/Search.gif?raw=true)
 
 # Contributing
 
