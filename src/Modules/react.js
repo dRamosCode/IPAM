@@ -20,7 +20,7 @@ const nullItem = {
 window.electron.requestRights();
 window.electron.receiveRights((evt, arg) => {
 	if (arg == false) {
-		showMessage("Administrator rights needed to run this app", "alarm");
+		//showMessage("Administrator rights needed to run this app", "alarm");
 	}
 });
 
@@ -91,7 +91,7 @@ function hideConfirmation() {
 // Show modal window
 function showModal() {
 	bg.render(<ModalBackground visible="true" />);
-	newItem.render(<ModalContainer visible="true" data={nullItem} edit={""} />);
+	newItem.render(<ModalContainer visible="true" data={nullItem} edit={""} key={Math.random.toString()} />);
 }
 
 // Cancel modal window

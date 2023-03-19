@@ -43,6 +43,7 @@ class ModalContainer extends React.Component {
 	callback() {}
 
 	render() {
+		console.log(this.state.DHCP, "container");
 		// New data
 		if (this.props.visible == "true") {
 			return (
