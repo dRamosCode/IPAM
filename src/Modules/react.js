@@ -20,7 +20,7 @@ const nullItem = {
 window.electron.requestRights();
 window.electron.receiveRights((evt, arg) => {
 	if (arg == false) {
-		//showMessage("Administrator rights needed to run this app", "alarm");
+		showMessage("Administrator rights needed to run this app", "alarm");
 	}
 });
 
@@ -179,7 +179,6 @@ function deleteElement(element) {
 		if (index >= 0) {
 			// Overwrite JSON data
 			window.electron.overwriteJSON(newData);
-
 			// Update data list
 			updateData(newData);
 			showMessage("Element deleted", "success");

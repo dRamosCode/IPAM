@@ -110,7 +110,6 @@ ipcMain.on("saveJSON", (evt, arg) => {
 	if (jetpack.exists(path.join(__dirname, "Data\\data.json")) == "file") {
 		data = jetpack.read(path.join(__dirname, "Data\\data.json"), "json");
 	}
-
 	//Update data
 	data.push(arg);
 

@@ -9,20 +9,20 @@ window.addEventListener("DOMContentLoaded", () => {
 		overwriteJSON: (data) => ipcRenderer.send("overwriteJSON", data),
 		requestData: () => ipcRenderer.send("requestData"),
 		receiveData: (data) => {
-			ipcRenderer.on("updateData", data);
+			ipcRenderer.once("updateData", data);
 		},
 		requestAdapters: () => ipcRenderer.send("requestAdapters"),
 		receiveAdapters: (adapters) => {
-			ipcRenderer.on("sendAdapters", adapters);
+			ipcRenderer.once("sendAdapters", adapters);
 		},
 		requestAdapterInfo: (adapter) => ipcRenderer.send("requestAdapterInfo", adapter),
 		receiveAdapterInfo: (adapterInfo) => {
-			ipcRenderer.on("sendAdapterInfo", adapterInfo);
+			ipcRenderer.once("sendAdapterInfo", adapterInfo);
 		},
 		changeNetwork: (network) => ipcRenderer.send("changeNetwork", network),
 		requestRights: () => ipcRenderer.send("requestRights"),
 		receiveRights: (rights) => {
-			ipcRenderer.on("sendRights", rights);
+			ipcRenderer.once("sendRights", rights);
 		},
 	});
 	ipcRenderer.setMaxListeners(1);

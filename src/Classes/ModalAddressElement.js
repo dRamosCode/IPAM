@@ -32,7 +32,6 @@ class ModalAddressElement extends React.Component {
 	}
 
 	render() {
-		console.log(this.props.parentState.DHCP);
 		// Edition field
 		if (this.props.edit != "" && this.state.value == "" && this.state.restored == false) {
 			// Fin separators
