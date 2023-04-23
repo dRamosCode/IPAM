@@ -22,7 +22,7 @@ It gets advantage of the CLI, by accessing the active network adapters and readi
 
 ## Built with
 
-![Electron](https://img.shields.io/badge/Electron-1c1c26?style=for-the-badge&logo=electron)
+<a src="https://www.electronjs.org/">![Electron](https://img.shields.io/badge/Electron-1c1c26?style=for-the-badge&logo=electron)</a>
 ![React](https://img.shields.io/badge/React-1c1c26?style=for-the-badge&logo=react)
 ![Jquery](https://img.shields.io/badge/jQuery-0669ad?style=for-the-badge&logo=jquery)
 ![Fs-jetpack](https://img.shields.io/badge/fs_jetpack-e5e5e5?style=for-the-badge)
