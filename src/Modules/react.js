@@ -34,10 +34,24 @@ window.electron.receiveAdapters((evt, arg) => {
 function activateNetwork(data) {
 	window.electron.changeNetwork(data);
 	showMessage("Loading...", "warning");
-	setTimeout(algo, 2000, data);
+	//setTimeout(algo, 2000, data);
+	window.electron.checkNetwork((evt, arg) => {
+		checkNetworkChange(arg);
+	});
 }
 
-function algo(data) {
+// Check if network change succeded or not
+function checkNetworkChange(result) {
+	if (result == "success") {
+		showMessage("Network adapter succesfully changed", "success");
+		setTimeout(hideMessage, 1000);
+	} else {
+		showMessage("Unable to change network adapter", "alarm");
+		setTimeout(hideMessage, 1000);
+	}
+}
+
+function checkChange(data) {
 	// Check if adapter was changed
 	window.electron.requestAdapterInfo(data.adapter);
 	window.electron.receiveAdapterInfo((evt, arg) => {

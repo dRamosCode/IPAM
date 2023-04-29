@@ -144,7 +144,13 @@ ipcMain.on("changeNetwork", (evt, arg) => {
 	if (arg.DHCP == true) {
 		exec(
 			"cmd /c chcp 65001>nul && netsh interface ipv4 set address " + arg.adapter + " dhcp",
-			(error, stdout, stderr) => {}
+			(error, stdout, stderr) => {
+				if (!error && !stderr) {
+					mainWindow.webContents.send("sendNetwork", "success");
+				} else {
+					mainWindow.webContents.send("sendNetwork", "error");
+				}
+			}
 		);
 	} else {
 		exec(
@@ -156,7 +162,13 @@ ipcMain.on("changeNetwork", (evt, arg) => {
 				arg.subnet +
 				" " +
 				arg.gateway,
-			(error, stdout, stderr) => {}
+			(error, stdout, stderr) => {
+				if (!error && !stderr) {
+					mainWindow.webContents.send("sendNetwork", "success");
+				} else {
+					mainWindow.webContents.send("sendNetwork", "error");
+				}
+			}
 		);
 	}
 });
